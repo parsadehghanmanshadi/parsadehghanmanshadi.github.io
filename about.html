@@ -3,111 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Parsa Dehghan Manshadi</title>
+    <title>About Parsa | Gray Hat Hacker</title>
     <style>
+        :root {
+            --dark: #0a0a0a;
+            --light: #f8f8f8;
+            --accent: #20c20e; /* Matrix green accent */
+            --gray: #333;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Courier New', monospace;
+            background-color: var(--dark);
+            color: var(--light);
             line-height: 1.6;
-            max-width: 800px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 900px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 2rem;
         }
         
         nav {
-            margin-bottom: 30px;
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
+            display: flex;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--gray);
         }
         
         nav a {
-            margin-right: 15px;
+            color: var(--light);
             text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
         }
         
         h1 {
-            margin-top: 0;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .section {
-            margin-bottom: 25px;
-        }
-        
-        .contact-box {
-            background: #f9f9f9;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 30px;
-        }
-        
-        .skills {
-            margin: 15px 0;
-        }
-        
-        .skills span {
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
             display: inline-block;
-            background: #f0f0f0;
-            padding: 3px 8px;
-            margin: 0 5px 5px 0;
-            border-radius: 3px;
-            font-size: 0.9em;
+        }
+        
+        h1::after {
+            content: '_';
+            animation: blink 1s infinite;
+        }
+        
+        h2 {
+            color: var(--accent);
+            margin-top: 2rem;
+            border-bottom: 1px solid var(--gray);
+            padding-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #aaa;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1.5rem 0;
+        }
+        
+        .skill {
+            background-color: rgba(32, 194, 14, 0.1);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid var(--accent);
+        }
+        
+        .contact-card {
+            background-color: var(--gray);
+            padding: 1.5rem;
+            border-left: 3px solid var(--accent);
+            margin-top: 2rem;
+        }
+        
+        ul {
+            padding-left: 1.2rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        li::marker {
+            color: var(--accent);
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        /* Terminal-like effect for paragraphs */
+        p {
+            max-width: 70ch;
+        }
+        
+        /* Glow effect for interactive elements */
+        a, .skill, h1, h2 {
+            transition: all 0.3s ease;
+        }
+        
+        a:hover, .skill:hover {
+            text-shadow: 0 0 8px var(--accent);
         }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About Me</a>
-    </nav>
-    
-    <div class="content">
-        <h1>About Parsa Dehghan Manshadi</h1>
+    <div class="container">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+        </nav>
         
-        <div class="section">
-            <p><strong>Gray Hat Hacker & Technology Enthusiast</strong></p>
-            <p>I'm passionate about cybersecurity, ethical hacking, and developing innovative technical solutions.</p>
-        </div>
-        
-        <div class="section">
-            <h2>My Background</h2>
-            <p>My journey into hacking began with curiosity and has evolved into professional expertise in ethical hacking and penetration testing. I specialize in identifying system vulnerabilities and developing secure solutions.</p>
-        </div>
-        
-        <div class="section">
-            <h2>Technical Skills</h2>
-            <div class="skills">
-                <span>Ethical Hacking</span>
-                <span>Penetration Testing</span>
-                <span>Python</span>
-                <span>Django</span>
-                <span>Web Development</span>
-                <span>Artificial Intelligence</span>
-                <span>System Security</span>
+        <main>
+            <h1>Parsa Dehghan Manshadi</h1>
+            <p class="tagline">Gray Hat Hacker | Security Researcher | Python Developer</p>
+            
+            <section>
+                <h2>About My Journey</h2>
+                <p>My fascination with hacking and cybersecurity began with simple curiosity and has evolved into professional expertise in ethical hacking and penetration testing. I specialize in identifying system vulnerabilities and developing secure solutions.</p>
+            </section>
+            
+            <section>
+                <h2>Core Skills</h2>
+                <div class="skills-container">
+                    <div class="skill">Ethical Hacking</div>
+                    <div class="skill">Penetration Testing</div>
+                    <div class="skill">Python</div>
+                    <div class="skill">Django</div>
+                    <div class="skill">Web Security</div>
+                    <div class="skill">AI/ML</div>
+                    <div class="skill">Reverse Engineering</div>
+                    <div class="skill">Network Security</div>
+                </div>
+                <p>I combine my expertise in Python development with security research to build robust systems and uncover vulnerabilities.</p>
+            </section>
+            
+            <section>
+                <h2>My Philosophy</h2>
+                <p>As a gray hat hacker, I operate in the space between white and black hat - exploring systems to expose vulnerabilities while maintaining strong ethical boundaries. My goal is to improve security through responsible disclosure.</p>
+            </section>
+            
+            <section>
+                <h2>Beyond Coding</h2>
+                <ul>
+                    <li>Competitive volleyball player</li>
+                    <li>Cybersecurity book collector</li>
+                    <li>Open source contributor</li>
+                    <li>CTF competition enthusiast</li>
+                </ul>
+            </section>
+            
+            <div class="contact-card">
+                <h2>Get In Touch</h2>
+                <p>I'm always open to interesting discussions about security, technology, or potential collaborations:</p>
+                <p><strong>Phone:</strong> +98 916 251 0463</p>
+                <p>Feel free to reach out for tech discussions, security audits, or just to share cool ideas.</p>
             </div>
-            <p>I have extensive experience with Python and Django framework development, along with practical knowledge in AI applications that complement my cybersecurity work.</p>
-        </div>
-        
-        <div class="section">
-            <h2>My Approach</h2>
-            <p>As a gray hat hacker, I focus on discovering security flaws to improve system protection while maintaining strong ethical principles. My work aims to strengthen digital security through responsible practices.</p>
-        </div>
-        
-        <div class="section">
-            <h2>Personal Interests</h2>
-            <ul>
-                <li>Playing volleyball</li>
-                <li>Researching cybersecurity trends</li>
-                <li>Collaborating on technical projects</li>
-                <li>Learning new technologies</li>
-            </ul>
-        </div>
-        
-        <div class="contact-box">
-            <h3>Contact Information</h3>
-            <p>I'm always interested in connecting with fellow technology professionals:</p>
-            <p>Phone: +98 916 251 0463</p>
-        </div>
+        </main>
     </div>
 </body>
 </html>
