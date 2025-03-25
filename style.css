@@ -1,75 +1,51 @@
-/* Importing a programming font */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap');
-
-body {
-    margin: 0;
-    font-family: 'Roboto Mono', monospace;
-    background: #121212;
-    color: #FFEB3B; /* Yellow color for text */
-    text-align: center;
-    overflow: hidden;
+/* Additional styles for interactive elements */
+.blinking-cursor {
+    animation: blink 1s infinite;
 }
 
-nav {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    background: linear-gradient(45deg, #FFEB3B, #FBC02D); /* Black-Yellow Gradient */
-    box-shadow: 0 4px 10px rgba(255, 235, 59, 0.5);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-}
-
-nav a {
-    color: #212121;
-    text-decoration: none;
-    padding: 15px 25px;
-    font-size: 20px;
-    font-weight: bold;
-    transition: all 0.3s;
-}
-
-nav a:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    transform: scale(1.1);
-}
-
-.content {
+.matrix-char {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 40px;
-    font-weight: bold;
-    animation: fadeIn 2s ease-in-out;
-}
-
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translate(-50%, -60%); }
-    100% { opacity: 1; transform: translate(-50%, -50%); }
-}
-
-.animated-bg {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
+    font-size: 1.2rem;
+    pointer-events: none;
+    transition: all 1s linear;
     z-index: -1;
-    background: radial-gradient(circle, rgba(255,235,59,0.5), rgba(0,0,0,0.8));
-    animation: crazyColors 5s infinite alternate, bgMove 10s infinite alternate;
 }
 
-@keyframes crazyColors {
-    0% { filter: hue-rotate(0deg); }
-    100% { filter: hue-rotate(360deg); }
+.skills-visualization {
+    margin-top: 2rem;
+    grid-column: 1 / -1;
 }
 
-@keyframes bgMove {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.1); }
+.skill-bar {
+    margin-bottom: 1rem;
+}
+
+.bar {
+    height: 4px;
+    background-color: var(--accent);
+    transition: width 1.5s ease-out;
+}
+
+.skill-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #aaa;
+}
+
+.glow {
+    animation: pulse-glow 1s infinite alternate;
+}
+
+@keyframes pulse-glow {
+    from {
+        box-shadow: 0 0 5px var(--accent);
+    }
+    to {
+        box-shadow: 0 0 20px var(--accent);
+    }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
