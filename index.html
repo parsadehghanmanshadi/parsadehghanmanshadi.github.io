@@ -3,53 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="title">Parsa Dehghan Manshadi | Gray Hat Hacker</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Parsa Dehghan Manshadi | Gray Hat Hacker</title>
+    <style>
+        :root {
+            --dark: #0a0a0a;
+            --light: #f8f8f8;
+            --accent: #20c20e; /* Matrix green accent */
+            --gray: #333;
+        }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            flex: 1;
+        }
+        
+        nav {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--gray);
+        }
+        
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            position: relative;
+        }
+        
+        .hero h1 {
+            color: var(--accent);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero h1::after {
+            content: '_';
+            animation: blink 1s infinite;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: #aaa;
+        }
+        
+        .typewriter {
+            border-right: 3px solid var(--accent);
+            white-space: nowrap;
+            overflow: hidden;
+            margin: 0 auto;
+            animation: 
+                typing 3.5s steps(40, end),
+                blink-caret 0.75s step-end infinite;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 0.8rem 2rem;
+            margin-top: 1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: rgba(32, 194, 14, 0.1);
+            text-shadow: 0 0 8px var(--accent);
+            box-shadow: 0 0 10px rgba(32, 194, 14, 0.3);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .feature-card {
+            background-color: var(--gray);
+            padding: 1.5rem;
+            border-top: 3px solid var(--accent);
+        }
+        
+        .feature-card h3 {
+            color: var(--accent);
+            margin-top: 0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--gray);
+            margin-top: 2rem;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--accent); }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <nav>
-            <a href="index.html" data-i18n="home">Home</a>
-            <a href="about.html" data-i18n="about">About</a>
-            <button id="language-switcher" class="language-btn">فارسی</button>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
         </nav>
         
         <main>
             <section class="hero">
-                <div class="profile-container">
-                    <img src="parsa.jpg" alt="Parsa Dehghan Manshadi" class="profile-img">
-                    <h1>Parsa Dehghan Manshadi</h1>
-                </div>
-                <div class="typewriter terminal-text">Gray Hat Hacker & Security Specialist</div>
-                <p data-i18n="tagline">Exploring the digital frontier where security meets innovation</p>
-                <a href="about.html" class="cta-button" data-i18n="learn_more">Learn More About Me</a>
+                <h1>Parsa Dehghan Manshadi</h1>
+                <div class="typewriter">Gray Hat Hacker & Security Specialist</div>
+                <p>Exploring the digital frontier where security meets innovation</p>
+                <a href="about.html" class="cta-button">Learn More About Me</a>
             </section>
             
             <section class="features">
                 <div class="feature-card">
-                    <h3 data-i18n="ethical_hacking">Ethical Hacking</h3>
-                    <p data-i18n="hacking_desc">Identifying vulnerabilities before malicious actors can exploit them through authorized penetration testing.</p>
+                    <h3>Ethical Hacking</h3>
+                    <p>Identifying vulnerabilities before malicious actors can exploit them through authorized penetration testing.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <h3 data-i18n="security_research">Security Research</h3>
-                    <p data-i18n="research_desc">Continuous exploration of emerging threats and developing defensive strategies against them.</p>
+                    <h3>Security Research</h3>
+                    <p>Continuous exploration of emerging threats and developing defensive strategies against them.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <h3 data-i18n="python_dev">Python Development</h3>
-                    <p data-i18n="python_desc">Building secure applications and automation tools with Python and Django framework.</p>
+                    <h3>Python Development</h3>
+                    <p>Building secure applications and automation tools with Python and Django framework.</p>
                 </div>
             </section>
         </main>
     </div>
     
     <footer>
-        <p>© 2023 Parsa Dehghan Manshadi | <span data-i18n="gray_hat">Gray Hat Hacker</span></p>
-        <p data-i18n="contact">Contact: +98 916 251 0463</p>
+        <p>© 2023 Parsa Dehghan Manshadi | Gray Hat Hacker</p>
+        <p>Contact: +98 916 251 0463</p>
     </footer>
-    
-    <script src="translations.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
