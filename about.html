@@ -3,30 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="about_title">About Parsa | Gray Hat Hacker</title>
-    <link rel="stylesheet" href="style.css">
+    <title>About Parsa | Gray Hat Hacker</title>
+    <style>
+        :root {
+            --dark: #0a0a0a;
+            --light: #f8f8f8;
+            --accent: #20c20e; /* Matrix green accent */
+            --gray: #333;
+        }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        nav {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--gray);
+        }
+        
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        h1 {
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h1::after {
+            content: '_';
+            animation: blink 1s infinite;
+        }
+        
+        h2 {
+            color: var(--accent);
+            margin-top: 2rem;
+            border-bottom: 1px solid var(--gray);
+            padding-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #aaa;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1.5rem 0;
+        }
+        
+        .skill {
+            background-color: rgba(32, 194, 14, 0.1);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid var(--accent);
+        }
+        
+        .contact-card {
+            background-color: var(--gray);
+            padding: 1.5rem;
+            border-left: 3px solid var(--accent);
+            margin-top: 2rem;
+        }
+        
+        ul {
+            padding-left: 1.2rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        li::marker {
+            color: var(--accent);
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        /* Terminal-like effect for paragraphs */
+        p {
+            max-width: 70ch;
+        }
+        
+        /* Glow effect for interactive elements */
+        a, .skill, h1, h2 {
+            transition: all 0.3s ease;
+        }
+        
+        a:hover, .skill:hover {
+            text-shadow: 0 0 8px var(--accent);
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <nav>
-            <a href="index.html" data-i18n="home">Home</a>
-            <a href="about.html" data-i18n="about">About</a>
-            <button id="language-switcher" class="language-btn">فارسی</button>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
         </nav>
         
         <main>
-            <div class="profile-container">
-                <img src="parsa.jpg" alt="Parsa Dehghan Manshadi" class="profile-img">
-                <h1>Parsa Dehghan Manshadi</h1>
+            <h1>Parsa Dehghan Manshadi</h1>
+            <p class="tagline">Gray Hat Hacker | Security Researcher | Python Developer</p>
+            
+            <section>
+                <h2>About My Journey</h2>
+                <p>My fascination with hacking and cybersecurity began with simple curiosity and has evolved into professional expertise in ethical hacking and penetration testing. I specialize in identifying system vulnerabilities and developing secure solutions.</p>
+            </section>
+            
+            <section>
+                <h2>Core Skills</h2>
+                <div class="skills-container">
+                    <div class="skill">Ethical Hacking</div>
+                    <div class="skill">Penetration Testing</div>
+                    <div class="skill">Python</div>
+                    <div class="skill">Django</div>
+                    <div class="skill">Web Security</div>
+                    <div class="skill">AI/ML</div>
+                    <div class="skill">Reverse Engineering</div>
+                    <div class="skill">Network Security</div>
+                </div>
+                <p>I combine my expertise in Python development with security research to build robust systems and uncover vulnerabilities.</p>
+            </section>
+            
+            <section>
+                <h2>My Philosophy</h2>
+                <p>As a gray hat hacker, I operate in the space between white and black hat - exploring systems to expose vulnerabilities while maintaining strong ethical boundaries. My goal is to improve security through responsible disclosure.</p>
+            </section>
+            
+            <section>
+                <h2>Beyond Coding</h2>
+                <ul>
+                    <li>Competitive volleyball player</li>
+                    <li>Cybersecurity book collector</li>
+                    <li>Open source contributor</li>
+                    <li>CTF competition enthusiast</li>
+                </ul>
+            </section>
+            
+            <div class="contact-card">
+                <h2>Get In Touch</h2>
+                <p>I'm always open to interesting discussions about security, technology, or potential collaborations:</p>
+                <p><strong>Phone:</strong> +98 916 251 0463</p>
+                <p>Feel free to reach out for tech discussions, security audits, or just to share cool ideas.</p>
             </div>
-            <p class="tagline terminal-text" data-i18n="tagline">Gray Hat Hacker | Security Researcher | Python Developer</p>
-            
-            <!-- Rest of your about page content with data-i18n attributes -->
-            
         </main>
     </div>
-    
-    <script src="translations.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
